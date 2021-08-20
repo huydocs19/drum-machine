@@ -3,8 +3,11 @@ import React, { Component } from 'react'
 export default class DrumPad extends Component {
   constructor(props) {
     super(props);
-    this.audioRef = React.createRef();    
-    this.buttonRef = React.createRef();
+    this.state = {
+      padBackgroundColor: "#808080",
+      width: 100,
+      height: 90
+    };
     this.playSound = this.playSound.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
   } 
@@ -12,17 +15,22 @@ export default class DrumPad extends Component {
     document.addEventListener('keydown', this.handleKeyPress);
     
   }
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress);
+  }
+  
   handleKeyPress = (event) => { 
-    if (this.props.getCurrentState().power && this.props.id == event.key.toUpperCase()) { 
-      this.buttonRef.current.focus();
-      this.playSound(); 
-      
+    
+    if (this.props.id == event.key.toUpperCase()) {
+          this.playSound(); 
     }
     
+    
   }
+  
   playSound = () => { 
-    if (this.props.getCurrentState().power)  { 
-      let audio = this.audioRef.current;
+    if (this.props.getCurrentState().power)  {       
+      let audio = document.getElementById(this.props.id);
       if (audio != null) {
         if (this.props.getCurrentState().currentBank) {
           audio.src = this.props.altSoundUrl;
@@ -38,18 +46,23 @@ export default class DrumPad extends Component {
         }else{
             audio.currentTime = 0
         }
-      }
-     
-         
+      }    
+      this.setState({padBackgroundColor: "#ffa500", width: 97, height: 87});    
+      setTimeout(() => {this.setState({padBackgroundColor:"#808080", width: 100, height: 90});}, 100);     
+       
+       
+    } else {
+      this.setState({width: 97, height: 87});
+      setTimeout(() => {this.setState({width: 100, height: 90});}, 100);
     }
     
     
   }
   render() {
     return (
-      <div class="drum-pad" id={this.props.id} onClick={this.playSound} tabIndex="0" onKeyDown={this.handleKeyPress} >
-            <button ref={this.buttonRef}>{this.props.id}</button>
-            <audio  class="clip" id={this.props.id} src={this.props.soundUrl} ref={this.audioRef}>
+      <div class="drum-pad" onClick={this.playSound} onKeyDown={this.handleKeyPress} >
+            <div style={{background: this.state.padBackgroundColor, width: this.state.width, height: this.state.height}}>{this.props.id}</div>
+            <audio  class="clip" id={this.props.id} src={this.props.soundUrl} >
               Your browser does not support the
               <code>audio</code> element.
             </audio>

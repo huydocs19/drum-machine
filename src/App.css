@@ -6,6 +6,7 @@
     align-items: center;
     background: #8d8d8d;    
     font-weight: 1000;
+    font-size: 18px;
     
 }
 #drum-machine {
@@ -44,15 +45,14 @@
     padding: 0px 30px 20px;
     
 }
-.drum-pad > button{
-    width: 100px;
-    height: 90px;
+.drum-pad > div{
     background: #808080;
     box-shadow: 2px 2px 7px 1px #2e2e2e;
     border-radius: 7px;
-}
-.drum-pad > button:focus {    
-    background: #ffa500;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    
 }
 #control-display {
     width: 250px;
@@ -79,5 +79,10 @@
 }
 #display > p {
     margin: 0px;
+}
+.fcc-logo {
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
 }
 

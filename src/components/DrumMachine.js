@@ -77,7 +77,7 @@ export default class DrumMachine extends Component {
     
     return (
       <div id="drum-machine">
-        <p>FCC <i class="fab fa-free-code-camp"></i></p>
+        <p>FCC <i class="fcc-logo fab fa-free-code-camp"></i></p>
         <div class="main-machine">         
           <div id="drum">
             {sounds.map((value, index) => {
