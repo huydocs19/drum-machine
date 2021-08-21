@@ -23,17 +23,20 @@ export default class Display extends Component {
         return (
           <div id="control-display">
             <p>Power</p> 
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" defaultChecked onChange={this.setMachinePower}/>          
-            </div>
+            <label className="switch">
+            <input type="checkbox" defaultChecked onChange={this.setMachinePower}/>
+            <span className="slider"></span>
+            </label>
             <div id="display">
               <p>{this.props.getCurrentState().currentKey}</p>
             </div>
-            <input type="range" class="form-range" min="1" max="100" value={this.props.getCurrentState().volume} step="1" onChange={this.setMachineVolume}/>
+            <input type="range" className="range-slider" min="1" max="100" value={this.props.getCurrentState().volume} step="1" onChange={this.setMachineVolume}/>
             <p>Bank</p>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onChange={this.setMachineBank}/>          
-            </div>
+            <label className="switch">
+            <input type="checkbox" onChange={this.setMachineBank}/>
+            <span className="slider"></span>
+            </label>
+            
            </div>
         );
       }

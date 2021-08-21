@@ -60,9 +60,9 @@ export default class DrumPad extends Component {
   }
   render() {
     return (
-      <div class="drum-pad" onClick={this.playSound} onKeyDown={this.handleKeyPress} >
+      <div className="drum-pad" onClick={this.playSound} onKeyDown={this.handleKeyPress} >
             <div style={{background: this.state.padBackgroundColor, width: this.state.width, height: this.state.height}}>{this.props.id}</div>
-            <audio  class="clip" id={this.props.id} src={this.props.soundUrl} >
+            <audio  className="clip" id={this.props.id} src={this.props.soundUrl} >
               Your browser does not support the
               <code>audio</code> element.
             </audio>

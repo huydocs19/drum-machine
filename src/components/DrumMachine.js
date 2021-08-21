@@ -76,9 +76,9 @@ export default class DrumMachine extends Component {
   render() { 
     
     return (
-      <div id="drum-machine">
-        <p>FCC <i class="fcc-logo fab fa-free-code-camp"></i></p>
-        <div class="main-machine">         
+      <div className='inner-container' id="drum-machine">
+        <p>FCC <i className="fcc-logo fab fa-free-code-camp"></i></p>
+        <div className="main-machine">         
           <div id="drum">
             {sounds.map((value, index) => {
               return <DrumPad key={index} id={value.id} name={value.name} altName={value.altName} soundUrl={value.soundUrl} altSoundUrl={value.altSoundUrl}

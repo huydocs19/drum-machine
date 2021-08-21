@@ -17,7 +17,7 @@
     flex-wrap: wrap;   
     background: #b3b3b3;
     border: 4px solid #ffa500;
-    min-width: 320px;
+    
     
 }
 #drum-machine > p {
@@ -74,7 +74,7 @@
     flex-direction: row;    
     justify-content: center;
     align-items: center;
-    margin: 10px 0px;
+    margin: 20px 0px;
     
 }
 #display > p {
@@ -85,4 +85,100 @@
     font-style: italic;
     font-weight: bold;
 }
+@media screen and (max-width: 650px) {
+    .inner-container {
+      transform: scale(0.7);
+    }
+  }
 
+ /* CUSTOM SWITCH : 
+ Credit : https://www.w3schools.com/howto/howto_css_switch.asp */
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 51px;
+    height: 23px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 21px;
+    left: 2px;
+    bottom: 3px;
+    background-color: #0000ff;
+    -webkit-transition: .2s;
+    transition: .2s;
+  }
+  
+  input:checked + .slider {
+    background-color: black;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px black;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* CUSTOM RANGE INPUT : 
+  Credit : https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+  .range-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    background: #424242;
+    box-shadow: 2px 1px 2px 1px #1a1a1a;
+    border: 1px solid #1a1a1a;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .range-slider:hover {
+    opacity: 1;
+  }
+  
+  .range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8px;
+    height: 25px;
+    background: #0000ff;
+    cursor: pointer;
+  }
+  
+  .range-slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #0000ff;
+    cursor: pointer;
+  }
